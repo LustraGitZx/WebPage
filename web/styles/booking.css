@@ -1,0 +1,264 @@
+/* ===== УНИКАЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ БРОНИРОВАНИЯ ===== */
+.page-wrap {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: calc(100vh - 64px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: var(--navy);
+  padding: 48px 32px;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 6px;
+}
+
+.sidebar h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 32px;
+  line-height: 1.15;
+}
+
+.sb-sep {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+}
+
+.sb-block {
+  margin-bottom: 8px;
+}
+
+.sb-block-label {
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 6px;
+}
+
+.sb-block-val {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.sb-block-val a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.sb-block-val a:hover {
+  color: var(--white);
+}
+
+.guarantee-box {
+  margin-top: auto;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.guarantee-box p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+}
+
+.guarantee-box strong {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* SEARCH STRIP */
+.search-strip {
+  background: var(--beige);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 32px;
+}
+
+.search-strip-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px 80px auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.sf {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sf label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gray);
+}
+
+.sf input,
+.sf select {
+  border: 1px solid var(--border);
+  background: var(--white);
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--graphite);
+  outline: none;
+  transition: border-color 0.18s;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  width: 100%;
+}
+
+.sf input:focus,
+.sf select:focus {
+  border-color: var(--blue);
+}
+
+.search-btn {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.18s;
+  height: 44px;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.search-btn:hover {
+  background: var(--navy);
+}
+
+/* MODULE AREA */
+.module-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.module-content {
+  flex: 1;
+  padding: 0;
+}
+
+#tl-booking-form {
+  min-height: calc(100vh - 64px - 86px);
+  background: var(--white);
+}
+
+.main-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LOADER */
+.tl-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding: 80px 40px;
+  color: var(--gray);
+}
+
+.tl-loader .spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tl-loader p {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+/* Адаптив booking */
+@media (max-width: 1024px) {
+  .page-wrap {
+    grid-template-columns: 240px 1fr;
+  }
+  .sidebar {
+    padding: 36px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-wrap {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 32px 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .sidebar h2 {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .guarantee-box {
+    display: none;
+  }
+  .search-strip {
+    padding: 16px 20px;
+  }
+  .search-strip-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .search-btn {
+    grid-column: 1 / -1;
+    height: auto;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-strip-inner {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    padding: 24px 20px;
+  }
+}
