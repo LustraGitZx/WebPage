@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Отель 5 Угол — Санкт-Петербург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/common.css">
+<link rel="stylesheet" href="styles/index.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="logo-mark">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="7,1 13,5 11,12 3,12 1,5" fill="none" stroke="white" stroke-width="1.5"/>
+      </svg>
+    </div>
+    5 Угол
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Главная</a></li>
+    <li><a href="conference.html">Конференц-зал</a></li>
+    <li><a href="booking.html" class="nav-cta">Забронировать</a></li>
+  </ul>
+  <div class="burger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <a href="index.html" onclick="closeMob()">Главная</a>
+  <a href="conference.html" onclick="closeMob()">Конференц-зал</a>
+  <a href="booking.html" class="mob-cta" onclick="closeMob()">Забронировать</a>
+</div>
+
+<div id="hero">
+  <div class="hero-img-wrap">
+    <img src="https://5ugol.ru/upload/resize_cache/iblock/f1d/1200_880_2/xkvckegya4fjep0sux3mrvpd5yqx9yg0.jpg" alt="Отель 5 Угол — интерьер" loading="eager">
+    <div class="hero-caption">
+      <div class="hero-stars"><span></span><span></span><span></span></div>
+      <h1>Отель<br>5 Угол</h1>
+      <p class="sub">Санкт-Петербург &nbsp;·&nbsp; Загородный проспект, 13</p>
+    </div>
+  </div>
+  <div class="search-bar" id="tl-booking-form"></div>
+</div>
+
+<section id="rooms">
+  <div class="rooms-head reveal">
+    <span class="label">Размещение</span>
+    <h2 class="section-title">Номера и апартаменты</h2>
+  </div>
+  <div class="rooms-scroll">
+    <!-- Семейный -->
+    <div class="room-card reveal" data-room-type="family" data-floor="3">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/321/465_265_2/qptpvtx1ei88p6nmz1mtwwdo1h7pc2z0.jpg" alt="Семейный" loading="lazy">
+      <div class="room-body">
+        <h3>Семейный</h3>
+        <div class="room-tag">Просторный · Для семей</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Люкс -->
+    <div class="room-card reveal" data-room-type="luxe" data-floor="3-4">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/2e8/465_265_2/s5skm5h4xf7q5irhl70u84ltjf7689y6.jpg" alt="Люкс" loading="lazy">
+      <div class="room-body">
+        <h3>Люкс</h3>
+        <div class="room-tag">Премиальный · Повышенный комфорт</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Стандарт 3 эт -->
+    <div class="room-card reveal" data-room-type="standard" data-floor="3">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/bf7/465_265_2/2pze49etohe37h5hu89h10x97vvgajdp.jpg" alt="Стандарт 3 эт." loading="lazy">
+      <div class="room-body">
+        <h3>Стандарт · 3 этаж</h3>
+        <div class="room-tag">Классический · Оптимальный</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Стандарт 4 эт -->
+    <div class="room-card reveal" data-room-type="standard" data-floor="4">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/3d4/465_265_2/h5yrrgekgt1l6vv1t54l6zwj2z8zb4lz.jpg" alt="Стандарт 4 эт." loading="lazy">
+      <div class="room-body">
+        <h3>Стандарт · 4 этаж</h3>
+        <div class="room-tag">Классический · Высокий этаж</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Комфорт 3 эт -->
+    <div class="room-card reveal" data-room-type="comfort" data-floor="3">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/1c3/465_265_2/t79chttji9vt6hl5znnpezkps4qx0cv0.jpg" alt="Комфорт 3 эт." loading="lazy">
+      <div class="room-body">
+        <h3>Комфорт · 3 этаж</h3>
+        <div class="room-tag">Улучшенный · Расширенный</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Комфорт 4 эт -->
+    <div class="room-card reveal" data-room-type="comfort" data-floor="4">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/d2e/465_265_2/x406q9nzr5i1ulp4bj75d8w7ok184c5n.jpg" alt="Комфорт 4 эт." loading="lazy">
+      <div class="room-body">
+        <h3>Комфорт · 4 этаж</h3>
+        <div class="room-tag">Улучшенный · Высокий этаж</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Мансарда -->
+    <div class="room-card reveal" data-room-type="attic" data-floor="5">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/239/465_265_2/sdrht2krfkdburmplya9yb6mvfhsykua.jpg" alt="Мансарда" loading="lazy">
+      <div class="room-body">
+        <h3>Мансарда</h3>
+        <div class="room-tag">Особенный · Скошенные потолки</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Апартаменты 1-комн -->
+    <div class="room-card reveal" data-room-type="apartment1" data-floor="1-2">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/563/465_265_2/dxhteo64twmqnv5kwbyfpejo2rprre1y.jpg" alt="Апартаменты 1-комн." loading="lazy">
+      <div class="room-body">
+        <h3>Апартаменты 1-комн.</h3>
+        <div class="room-tag">Апартаменты · Домашний уют</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+    <!-- Апартаменты 2-комн -->
+    <div class="room-card reveal" data-room-type="apartment2" data-floor="1-2">
+      <img class="room-img" src="https://5ugol.ru/upload/resize_cache/iblock/182/465_265_2/9dybcdt610r1n3pkjk0jatk6q19ynk2x.jpg" alt="Апартаменты 2-комн." loading="lazy">
+      <div class="room-body">
+        <h3>Апартаменты 2-комн.</h3>
+        <div class="room-tag">Апартаменты · Максимум пространства</div>
+        <a class="room-link" href="javascript:void(0)">Подробнее</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="reveal">
+    <span class="label">Для гостей</span>
+    <h2 class="section-title">Услуги</h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="srv-group">
+      <h3>Бесплатно</h3>
+      <div class="srv-item"><div class="srv-name">Кухня</div><div class="srv-desc">Общая кухня для самостоятельного приготовления еды</div></div>
+      <div class="srv-item"><div class="srv-name">Подъём багажа</div><div class="srv-desc">При заезде и выезде — персонал поможет с вещами</div></div>
+      <div class="srv-item"><div class="srv-name">Прачечная самообслуживания</div><div class="srv-desc">Доступна на территории отеля в любое время</div></div>
+      <div class="srv-item"><div class="srv-name">Хранение багажа</div><div class="srv-desc">Камера хранения независимо от времени заезда/выезда</div></div>
+      <div class="srv-item"><div class="srv-name">Чайная зона 24/7</div><div class="srv-desc">Круглосуточная чайная зона на территории отеля</div></div>
+    </div>
+    <div class="srv-group">
+      <h3>Платные услуги</h3>
+      <div class="srv-item"><div class="srv-name">Завтрак</div><div class="srv-desc">В ресторане отеля — включается в тариф или оплачивается отдельно</div></div>
+      <div class="srv-item"><div class="srv-name">Обед</div><div class="srv-desc">Можно включить в стоимость бронирования</div></div>
+      <div class="srv-item"><div class="srv-name">Ужин</div><div class="srv-desc">Можно включить в стоимость бронирования</div></div>
+      <div class="srv-item"><div class="srv-name">Аренда спортивного инвентаря</div><div class="srv-desc">Подробности и цены — на ресепшен</div></div>
+      <div class="srv-item"><div class="srv-name">Размещение с питомцем</div><div class="srv-desc">Принимаем декоративных собак до 10 кг</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="promo-band reveal">
+  <div><h2>Конференц-зал<br>в центре Петербурга</h2><p>50 м² · до 50 человек · от 2 000 ₽/час</p></div>
+  <a class="btn btn-white" href="conference.html">Подробнее</a>
+</div>
+
+<section id="contacts">
+  <div class="reveal"><span class="label">Связаться</span><h2 class="section-title">Контакты</h2></div>
+  <div class="contacts-grid reveal">
+    <div class="cg"><h4>Адрес</h4><p>Загородный проспект, 13<br>Санкт-Петербург</p></div>
+    <div class="cg"><h4>Телефон</h4><a href="tel:+78124078181">+7 (812) 407-81-81</a><a href="tel:+79119871820">+7 (911) 987-18-20</a></div>
+    <div class="cg"><h4>Email</h4><a href="mailto:frontdesk@5ugol.ru">frontdesk@5ugol.ru</a></div>
+    <div class="cg"><h4>Социальные сети</h4>
+      <div class="social-row">
+        <a class="soc" href="https://vk.com/5ugolspb" target="_blank" rel="noopener"><div class="soc-icon"><img src="img/vk.svg" alt="VK"></div>ВКонтакте</a>
+        <a class="soc" href="https://t.me/FifthCorneerBot" target="_blank" rel="noopener"><div class="soc-icon"><img src="img/telegram.svg" alt="Telegram"></div>Telegram</a>
+        <a class="soc" href="https://max.ru/u/f9LHodD0cOJRsnHOx8WOLRxPOSasKHpdg3dygl_lKTsrMQcA0DxAyyqGXzA" target="_blank" rel="noopener"><div class="soc-icon"><img src="img/max.svg" alt="MAX"></div>MAX</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Отель 5 Угол, Санкт-Петербург</p>
+  <div class="fl">
+    <a href="https://5ugol.ru/docsDirectory/privacy_policy.docx" target="_blank">Политика конфиденциальности</a>
+    <a href="https://5ugol.ru/docsDirectory/personal_data_agreement.docx" target="_blank">Согласие на обработку данных</a>
+    <a href="https://5ugol.ru/docsDirectory/dogovorOferty.docx" target="_blank">Договор оферты</a>
+  </div>
+</footer>
+
+<!-- Модальное окно -->
+<div id="roomModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="scr/index.js" defer></script>
+
+<script>
+  (function(w) {
+    var q = [
+        ["setContext", "TL-INT-5ugol_2025-11-21", "ru"],
+        ["embed", "search-form", { container: "tl-search-form" }],
+        ["embed", "booking-form", { container: "tl-booking-form" }],
+        ['embed', 'guest-account', { container: 'tl-guest-account' }]
+    ];
+    var h = ["ru-ibe.tlintegration.ru", "ibe.tlintegration.ru", "ibe.tlintegration.com"];
+    var t = w.travelline = (w.travelline || {}),
+        ti = t.integration = (t.integration || {});
+    ti.__cq = ti.__cq ? ti.__cq.concat(q) : q;
+    if (!ti.__loader) {
+        ti.__loader = true;
+        var d = w.document,
+            c = d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+        function e(s, f) { return function() { w.TL || (c.removeChild(s), f()) }; }
+        (function l(h) {
+            if (0 === h.length) return;
+            var s = d.createElement("script");
+            s.type = "text/javascript";
+            s.async = !0;
+            s.src = "https://" + h[0] + "/integration/loader.js";
+            s.onerror = s.onload = e(s, function() { l(h.slice(1, h.length)); });
+            c.appendChild(s);
+        })(h);
+    }
+  })(window);
+</script>
+</body>
+</html>
