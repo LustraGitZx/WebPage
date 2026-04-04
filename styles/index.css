@@ -137,6 +137,126 @@ section {
   padding: 80px 40px;
 }
 
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal-content {
+  background: var(--white);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+  color: var(--graphite);
+  transition: color 0.2s;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  color: var(--navy);
+}
+
+#modalBody {
+  padding: 32px 36px;
+}
+
+.room-card {
+  cursor: pointer;
+}
+
+/* Стили для контента внутри модалки */
+.room-detail h2 {
+  font-size: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.room-detail hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.detail-block {
+  margin-bottom: 20px;
+}
+
+.detail-block h4 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.detail-block p, .detail-block li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+.detail-block ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.detail-block li {
+  margin-bottom: 4px;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.feature-tag {
+  background: var(--beige);
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+  color: var(--graphite);
+}
+
 #rooms {
   background: var(--beige);
   padding: 80px 0;
