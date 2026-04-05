@@ -1,25 +1,190 @@
-// Intersection Observer для анимации .reveal элементов
-const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отель 5 Угол — Санкт-Петербург</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-// Наблюдаем за всеми текущими и будущими .reveal элементами
-function observeReveal() {
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-    revealObserver.observe(el);
-  });
-}
+  <!-- Web Components -->
+  <script src="scr/components/hotel-navbar.js" defer></script>
+  <script src="scr/components/hotel-footer.js" defer></script>
+  <script src="scr/components/room-card.js" defer></script>
+  <script src="scr/components/room-modal.js" defer></script>
+  <script src="scr/components/tl-widget.js" defer></script>
+  <script src="scr/reveal.js" defer></script>
+</head>
+<body>
 
-// Запускаем сразу и при изменении DOM (для динамически добавленных компонентов)
-document.addEventListener('DOMContentLoaded', observeReveal);
+  <hotel-navbar active="home"></hotel-navbar>
 
-const domObserver = new MutationObserver(observeReveal);
-domObserver.observe(document.body, { childList: true, subtree: true });
+  <div id="hero">
+    <div class="hero-img-wrap">
+      <img src="https://5ugol.ru/upload/resize_cache/iblock/f1d/1200_880_2/xkvckegya4fjep0sux3mrvpd5yqx9yg0.jpg"
+           alt="Отель 5 Угол — интерьер" loading="eager">
+      <div class="hero-caption">
+        <div class="hero-stars"><span></span><span></span><span></span></div>
+        <h1>Отель<br>5 Угол</h1>
+        <p class="sub">Санкт-Петербург &nbsp;·&nbsp; Загородный проспект, 13</p>
+      </div>
+    </div>
+    <tl-widget embed="search-form"></tl-widget>
+  </div>
+
+  <section id="rooms">
+    <div class="rooms-head reveal">
+      <span class="label">Размещение</span>
+      <h2 class="section-title">Номера и апартаменты</h2>
+    </div>
+
+    <div class="rooms-scroll">
+      <room-card
+        name="Семейный"
+        tag="Просторный · Для семей"
+        img="https://5ugol.ru/upload/resize_cache/iblock/321/465_265_2/qptpvtx1ei88p6nmz1mtwwdo1h7pc2z0.jpg"
+        data-room-type="family"
+        data-floor="3">
+      </room-card>
+
+      <room-card
+        name="Люкс"
+        tag="Премиальный · Повышенный комфорт"
+        img="https://5ugol.ru/upload/resize_cache/iblock/2e8/465_265_2/s5skm5h4xf7q5irhl70u84ltjf7689y6.jpg"
+        data-room-type="luxe"
+        data-floor="3-4">
+      </room-card>
+
+      <room-card
+        name="Стандарт · 3 этаж"
+        tag="Классический · Оптимальный"
+        img="https://5ugol.ru/upload/resize_cache/iblock/bf7/465_265_2/2pze49etohe37h5hu89h10x97vvgajdp.jpg"
+        data-room-type="standard"
+        data-floor="3">
+      </room-card>
+
+      <room-card
+        name="Стандарт · 4 этаж"
+        tag="Классический · Высокий этаж"
+        img="https://5ugol.ru/upload/resize_cache/iblock/3d4/465_265_2/h5yrrgekgt1l6vv1t54l6zwj2z8zb4lz.jpg"
+        data-room-type="standard"
+        data-floor="4">
+      </room-card>
+
+      <room-card
+        name="Комфорт · 3 этаж"
+        tag="Улучшенный · Расширенный"
+        img="https://5ugol.ru/upload/resize_cache/iblock/1c3/465_265_2/t79chttji9vt6hl5znnpezkps4qx0cv0.jpg"
+        data-room-type="comfort"
+        data-floor="3">
+      </room-card>
+
+      <room-card
+        name="Комфорт · 4 этаж"
+        tag="Улучшенный · Высокий этаж"
+        img="https://5ugol.ru/upload/resize_cache/iblock/d2e/465_265_2/x406q9nzr5i1ulp4bj75d8w7ok184c5n.jpg"
+        data-room-type="comfort"
+        data-floor="4">
+      </room-card>
+
+      <room-card
+        name="Мансарда"
+        tag="Особенный · Скошенные потолки"
+        img="https://5ugol.ru/upload/resize_cache/iblock/239/465_265_2/sdrht2krfkdburmplya9yb6mvfhsykua.jpg"
+        data-room-type="attic"
+        data-floor="5">
+      </room-card>
+
+      <room-card
+        name="Апартаменты 1-комн."
+        tag="Апартаменты · Домашний уют"
+        img="https://5ugol.ru/upload/resize_cache/iblock/563/465_265_2/dxhteo64twmqnv5kwbyfpejo2rprre1y.jpg"
+        data-room-type="apartment1"
+        data-floor="1-2">
+      </room-card>
+
+      <room-card
+        name="Апартаменты 2-комн."
+        tag="Апартаменты · Максимум пространства"
+        img="https://5ugol.ru/upload/resize_cache/iblock/182/465_265_2/9dybcdt610r1n3pkjk0jatk6q19ynk2x.jpg"
+        data-room-type="apartment2"
+        data-floor="1-2">
+      </room-card>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="reveal">
+      <span class="label">Для гостей</span>
+      <h2 class="section-title">Услуги</h2>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="srv-group">
+        <h3>Бесплатно</h3>
+        <div class="srv-item"><div class="srv-name">Кухня</div><div class="srv-desc">Общая кухня для самостоятельного приготовления еды</div></div>
+        <div class="srv-item"><div class="srv-name">Подъём багажа</div><div class="srv-desc">При заезде и выезде — персонал поможет с вещами</div></div>
+        <div class="srv-item"><div class="srv-name">Прачечная самообслуживания</div><div class="srv-desc">Доступна на территории отеля в любое время</div></div>
+        <div class="srv-item"><div class="srv-name">Хранение багажа</div><div class="srv-desc">Камера хранения независимо от времени заезда/выезда</div></div>
+        <div class="srv-item"><div class="srv-name">Чайная зона 24/7</div><div class="srv-desc">Круглосуточная чайная зона на территории отеля</div></div>
+      </div>
+
+      <div class="srv-group">
+        <h3>Платные услуги</h3>
+        <div class="srv-item"><div class="srv-name">Завтрак</div><div class="srv-desc">В ресторане отеля — включается в тариф или оплачивается отдельно</div></div>
+        <div class="srv-item"><div class="srv-name">Обед</div><div class="srv-desc">Можно включить в стоимость бронирования</div></div>
+        <div class="srv-item"><div class="srv-name">Ужин</div><div class="srv-desc">Можно включить в стоимость бронирования</div></div>
+        <div class="srv-item"><div class="srv-name">Аренда спортивного инвентаря</div><div class="srv-desc">Подробности и цены — на ресепшен</div></div>
+        <div class="srv-item"><div class="srv-name">Размещение с питомцем</div><div class="srv-desc">Принимаем декоративных собак до 10 кг</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="promo-band reveal">
+    <div>
+      <h2>Конференц-зал<br>в центре Петербурга</h2>
+      <p>50 м² · до 50 человек · от 2 000 ₽/час</p>
+    </div>
+    <a class="btn btn-white" href="conference.html">Подробнее</a>
+  </div>
+
+  <section id="contacts">
+    <div class="reveal">
+      <span class="label">Связаться</span>
+      <h2 class="section-title">Контакты</h2>
+    </div>
+
+    <div class="contacts-grid reveal">
+      <div class="cg"><h4>Адрес</h4><p>Загородный проспект, 13<br>Санкт-Петербург</p></div>
+      <div class="cg">
+        <h4>Телефон</h4>
+        <a href="tel:+78124078181">+7 (812) 407-81-81</a>
+        <a href="tel:+79119871820">+7 (911) 987-18-20</a>
+      </div>
+      <div class="cg"><h4>Email</h4><a href="mailto:frontdesk@5ugol.ru">frontdesk@5ugol.ru</a></div>
+      <div class="cg">
+        <h4>Социальные сети</h4>
+        <div class="social-row">
+          <a class="soc" href="https://vk.com/5ugolspb" target="_blank" rel="noopener">
+            <div class="soc-icon"><img src="img/vk.svg" alt="VK"></div>ВКонтакте
+          </a>
+          <a class="soc" href="https://t.me/FifthCorneerBot" target="_blank" rel="noopener">
+            <div class="soc-icon"><img src="img/telegram.svg" alt="Telegram"></div>Telegram
+          </a>
+          <a class="soc" href="https://max.ru/u/f9LHodD0cOJRsnHOx8WOLRxPOSasKHpdg3dygl_lKTsrMQcA0DxAyyqGXzA" target="_blank" rel="noopener">
+            <div class="soc-icon"><img src="img/max.svg" alt="MAX"></div>MAX
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hotel-footer></hotel-footer>
+
+  <room-modal></room-modal>
+
+</body>
+</html>

@@ -1,40 +1,84 @@
-class TlWidget extends HTMLElement {
-  connectedCallback() {
-    const embed = this.getAttribute('embed') || 'search-form';
-    const containerId = `tl-${embed}-${Math.random().toString(36).slice(2, 7)}`;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бронирование — Отель 5 Угол</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/booking.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    this.innerHTML = `<div id="${containerId}"></div>`;
-    this._initTL(embed, containerId);
-  }
+  <!-- Web Components -->
+  <script src="scr/components/hotel-navbar.js" defer></script>
+  <script src="scr/components/hotel-footer.js" defer></script>
+  <script src="scr/components/tl-widget.js" defer></script>
+</head>
+<body>
 
-  _initTL(embed, containerId) {
-    (function (w) {
-      const q = [
-        ['setContext', 'TL-INT-5ugol_2025-11-21', 'ru'],
-        ['embed', embed, { container: containerId }],
-        ['embed', 'guest-account', { container: 'tl-guest-account' }],
-      ];
-      const h = ['ru-ibe.tlintegration.ru', 'ibe.tlintegration.ru', 'ibe.tlintegration.com'];
-      const t = (w.travelline = w.travelline || {});
-      const ti = (t.integration = t.integration || {});
-      ti.__cq = ti.__cq ? ti.__cq.concat(q) : q;
-      if (!ti.__loader) {
-        ti.__loader = true;
-        const d = w.document;
-        const c = d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0];
-        const e = (s, f) => () => { w.TL || (c.removeChild(s), f()); };
-        (function l(h) {
-          if (!h.length) return;
-          const s = d.createElement('script');
-          s.type = 'text/javascript';
-          s.async = true;
-          s.src = 'https://' + h[0] + '/integration/loader.js';
-          s.onerror = s.onload = e(s, () => l(h.slice(1)));
-          c.appendChild(s);
-        })(h);
-      }
-    })(window);
-  }
-}
+  <hotel-navbar active="booking"></hotel-navbar>
 
-customElements.define('tl-widget', TlWidget);
+  <div class="page-wrap">
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-label">Онлайн-бронирование</div>
+        <h2>Отель<br>5 Угол</h2>
+      </div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Адрес</div>
+        <div class="sb-block-val">Загородный проспект, 13<br>Санкт-Петербург</div>
+      </div>
+      <div class="sb-sep"></div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Телефон</div>
+        <div class="sb-block-val">
+          <a href="tel:+78124078181">+7 (812) 407-81-81</a><br>
+          <a href="tel:+79119871820">+7 (911) 987-18-20</a>
+        </div>
+      </div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Email</div>
+        <div class="sb-block-val"><a href="mailto:frontdesk@5ugol.ru">frontdesk@5ugol.ru</a></div>
+      </div>
+      <div class="sb-sep"></div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Заезд / Выезд</div>
+        <div class="sb-block-val">с 14:00 / до 12:00</div>
+      </div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Питомцы</div>
+        <div class="sb-block-val">Принимаем собак до 10 кг</div>
+      </div>
+      <div class="sb-sep"></div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Мессенджеры</div>
+        <div class="sb-block-val">
+          <a href="https://t.me/FifthCorneerBot" target="_blank" rel="noopener">Telegram</a> &nbsp;·&nbsp;
+          <a href="https://vk.com/5ugolspb" target="_blank" rel="noopener">ВКонтакте</a> &nbsp;·&nbsp;
+          <a href="https://max.ru/u/f9LHodD0cOJRsnHOx8WOLRxPOSasKHpdg3dygl_lKTsrMQcA0DxAyyqGXzA" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+
+      <div class="guarantee-box">
+        <p><strong>Безопасная оплата.</strong> Бронирование обрабатывается сервисом TravelLine. Ваши данные защищены.</p>
+      </div>
+    </aside>
+
+    <div class="main-col">
+      <div class="module-content">
+        <tl-widget embed="booking-form"></tl-widget>
+      </div>
+
+      <hotel-footer></hotel-footer>
+    </div>
+  </div>
+
+</body>
+</html>
