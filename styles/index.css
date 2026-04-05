@@ -557,7 +557,6 @@ room-card:hover {
 .search-form-wrapper {
   position: relative;
   z-index: 10;
-  margin-top: -68px;           /* ← 20% перекрытия Hero (примерно 32% от высоты виджета) */
   padding: 0 40px;
   max-width: 1400px;
   margin-left: auto;
