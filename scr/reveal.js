@@ -1,4 +1,3 @@
-// Intersection Observer для анимации .reveal элементов
 const revealObserver = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
@@ -8,18 +7,25 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.1 }
+  { threshold: 0.05 }
 );
 
-// Наблюдаем за всеми текущими и будущими .reveal элементами
 function observeReveal() {
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
     revealObserver.observe(el);
   });
 }
 
-// Запускаем сразу и при изменении DOM (для динамически добавленных компонентов)
-document.addEventListener('DOMContentLoaded', observeReveal);
+// Запускаем сразу после загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+  observeReveal();
+  // Web Components рендерятся чуть позже — повторяем через 100ms и 300ms
+  setTimeout(observeReveal, 100);
+  setTimeout(observeReveal, 300);
+});
 
+// Следим за новыми элементами в DOM
 const domObserver = new MutationObserver(observeReveal);
-domObserver.observe(document.body, { childList: true, subtree: true });
+document.addEventListener('DOMContentLoaded', () => {
+  domObserver.observe(document.body, { childList: true, subtree: true });
+});
