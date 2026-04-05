@@ -574,14 +574,12 @@ room-card:hover {
 /* Адаптив */
 @media (max-width: 1024px) {
   .search-form-wrapper {
-    margin-top: -55px;
     padding: 0 24px;
   }
 }
 
 @media (max-width: 640px) {
   .search-form-wrapper {
-    margin-top: -42px;
     padding: 0 16px;
   }
 }
