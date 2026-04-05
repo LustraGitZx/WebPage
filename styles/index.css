@@ -551,3 +551,38 @@ room-card:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==================== SEARCH-FORM WRAPPER (только index.html) ==================== */
+.search-form-wrapper {
+  position: relative;
+  z-index: 10;
+  margin-top: -68px;           /* ← 20% перекрытия Hero (примерно 32% от высоты виджета) */
+  padding: 0 40px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;        /* чтобы не мешать кликам по Hero */
+}
+
+.search-form-wrapper > * {
+  pointer-events: auto;        /* возвращаем кликабельность виджету */
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(30, 64, 175, 0.15);
+  overflow: hidden;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .search-form-wrapper {
+    margin-top: -55px;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .search-form-wrapper {
+    margin-top: -42px;
+    padding: 0 16px;
+  }
+}
