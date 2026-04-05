@@ -1,19 +1,15 @@
-function toggleMob() {
-  const m = document.getElementById('mobNav');
-  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-}
-function closeMob() {
-  document.getElementById('mobNav').style.display = 'none';
-}
+// Переключение табов кофе-брейка через делегирование событий
+document.addEventListener('click', e => {
+  const tab = e.target.closest('[data-tab]');
+  if (!tab) return;
 
-function switchTab(btn, id) {
+  const targetId = tab.dataset.tab;
+
+  // Деактивируем все табы и панели
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(id).classList.add('active');
-}
 
-const obs = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) e.target.classList.add('in');
-}), { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+  // Активируем нужные
+  tab.classList.add('active');
+  document.getElementById(targetId)?.classList.add('active');
+});

@@ -1,159 +1,142 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Конференц-зал — Отель 5 Угол</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<!-- Общие стили + стили конференции -->
-<link rel="stylesheet" href="styles/common.css">
-<link rel="stylesheet" href="styles/conference.css">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конференц-зал — Отель 5 Угол</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/conference.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Web Components -->
+  <script src="scr/components/hotel-navbar.js" defer></script>
+  <script src="scr/components/hotel-footer.js" defer></script>
+  <script src="scr/reveal.js" defer></script>
+  <script src="scr/conference.js" defer></script>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="index.html">
-    <div class="logo-mark">
-      <svg viewBox="0 0 14 14" fill="none"><polygon points="7,1 13,5 11,12 3,12 1,5" fill="none" stroke="white" stroke-width="1.5"/></svg>
-    </div>
-    5 Угол
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Главная</a></li>
-    <li><a href="conference.html" class="active">Конференц-зал</a></li>
-    <li><a href="booking.html" class="nav-cta">Забронировать</a></li>
-  </ul>
-  <div class="burger" onclick="toggleMob()"><span></span><span></span><span></span></div>
-</nav>
+  <hotel-navbar active="conference"></hotel-navbar>
 
-<div class="mob-nav" id="mobNav">
-  <a href="index.html" onclick="closeMob()">Главная</a>
-  <a href="conference.html" onclick="closeMob()">Конференц-зал</a>
-  <a href="booking.html" class="mob-cta" onclick="closeMob()">Забронировать</a>
-</div>
-
-<div class="page-hero">
-  <span class="label">Мероприятия</span>
-  <h1>Конференц-зал</h1>
-  <p>Современное пространство для деловых встреч, переговоров и корпоративных мероприятий в самом сердце Санкт-Петербурга</p>
-  <div class="hero-stats">
-    <div>
-      <div class="hstat-num">50</div>
-      <div class="hstat-label">кв. метров</div>
-    </div>
-    <div>
-      <div class="hstat-num">50</div>
-      <div class="hstat-label">человек макс.</div>
-    </div>
-    <div>
-      <div class="hstat-num">5</div>
-      <div class="hstat-label">схем рассадки</div>
+  <div class="page-hero">
+    <span class="label">Мероприятия</span>
+    <h1>Конференц-зал</h1>
+    <p>Современное пространство для деловых встреч, переговоров и корпоративных мероприятий в самом сердце Санкт-Петербурга</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num">50</div>
+        <div class="hstat-label">кв. метров</div>
+      </div>
+      <div>
+        <div class="hstat-num">50</div>
+        <div class="hstat-label">человек макс.</div>
+      </div>
+      <div>
+        <div class="hstat-num">5</div>
+        <div class="hstat-label">схем рассадки</div>
+      </div>
     </div>
   </div>
-</div>
 
-<section id="overview">
-  <div class="overview-grid reveal">
-    <img class="hall-img"
-      src="https://5ugol.ru/upload/iblock/4f9/4f9ebb6cca0ce38b2d9dfcc0bc74a3af.jpeg"
-      alt="Конференц-зал отеля 5 Угол" loading="eager">
-    <div class="hall-detail">
-      <div class="seating-section">
-        <h3>Варианты рассадки</h3>
-        <div class="seating-grid">
-          <div class="seat-item"><div class="seat-type">Театр</div><div class="seat-cap">до 50 человек</div></div>
-          <div class="seat-item"><div class="seat-type">Класс</div><div class="seat-cap">до 12 человек</div></div>
-          <div class="seat-item"><div class="seat-type">U-стиль</div><div class="seat-cap">до 21 человека</div></div>
-          <div class="seat-item"><div class="seat-type">По периметру</div><div class="seat-cap">до 24 человек</div></div>
-          <div class="seat-item"><div class="seat-type">Квадратный стол</div><div class="seat-cap">до 24 человек</div></div>
+  <section id="overview">
+    <div class="overview-grid reveal">
+      <img class="hall-img"
+           src="https://5ugol.ru/upload/iblock/4f9/4f9ebb6cca0ce38b2d9dfcc0bc74a3af.jpeg"
+           alt="Конференц-зал отеля 5 Угол" loading="eager">
+
+      <div class="hall-detail">
+        <div class="seating-section">
+          <h3>Варианты рассадки</h3>
+          <div class="seating-grid">
+            <div class="seat-item"><div class="seat-type">Театр</div><div class="seat-cap">до 50 человек</div></div>
+            <div class="seat-item"><div class="seat-type">Класс</div><div class="seat-cap">до 12 человек</div></div>
+            <div class="seat-item"><div class="seat-type">U-стиль</div><div class="seat-cap">до 21 человека</div></div>
+            <div class="seat-item"><div class="seat-type">По периметру</div><div class="seat-cap">до 24 человек</div></div>
+            <div class="seat-item"><div class="seat-type">Квадратный стол</div><div class="seat-cap">до 24 человек</div></div>
+          </div>
+        </div>
+
+        <div class="price-section">
+          <h3>Стоимость аренды</h3>
+          <div class="price-cards">
+            <div class="price-card"><div class="pc-amount">2 300 ₽</div><div class="pc-note">в час (до 8 часов)</div></div>
+            <div class="price-card featured"><div class="pc-amount">2 000 ₽</div><div class="pc-note">в час (от 8 часов)</div></div>
+          </div>
+        </div>
+
+        <div class="equip-section">
+          <h3>Оборудование</h3>
+          <div class="equip-list">
+            <div class="equip-tag">Экран</div>
+            <div class="equip-tag">Флипчарт</div>
+            <div class="equip-tag">Проектор · 500 ₽/час</div>
+            <div class="equip-tag">Ноутбук · 2 000 ₽/день</div>
+          </div>
+          <p style="margin-top:10px;font-size:12px;color:var(--gray)">Проектор бесплатно при аренде от 8 часов</p>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:frontdesk@5ugol.ru">Запросить бронирование</a>
+          <a class="btn btn-outline" href="tel:+78124078181">Позвонить</a>
         </div>
       </div>
-      <div class="price-section">
-        <h3>Стоимость аренды</h3>
-        <div class="price-cards">
-          <div class="price-card"><div class="pc-amount">2 300 ₽</div><div class="pc-note">в час (до 8 часов)</div></div>
-          <div class="price-card featured"><div class="pc-amount">2 000 ₽</div><div class="pc-note">в час (от 8 часов)</div></div>
-        </div>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <div class="reveal">
+      <span class="label">Кейтеринг</span>
+      <h2 class="section-title">Меню кофе-брейка</h2>
+    </div>
+
+    <div class="menu-tabs reveal">
+      <button class="tab active" data-tab="t-light">Лёгкий</button>
+      <button class="tab" data-tab="t-mid">Средний</button>
+      <button class="tab" data-tab="t-full">Полный</button>
+    </div>
+
+    <div class="panel active reveal" id="t-light">
+      <div class="menu-cols">
+        <div class="mcol"><h4>Холодные закуски</h4><ul><li>Круассан с сыром сулугуни и томатами</li><li>Круассан с ветчиной и сыром</li></ul></div>
+        <div class="mcol"><h4>Десерты</h4><ul><li>Пахлава слоёная с грецким орехом</li><li>Чурчхелла (виноградная / гранатовая)</li><li>Слойка с джемом</li></ul></div>
+        <div class="mcol"><h4>Напитки</h4><ul><li>Питьевая вода без газа</li><li>Чай пакетированный</li><li>Кофе заварной</li></ul></div>
       </div>
-      <div class="equip-section">
-        <h3>Оборудование</h3>
-        <div class="equip-list">
-          <div class="equip-tag">Экран</div>
-          <div class="equip-tag">Флипчарт</div>
-          <div class="equip-tag">Проектор · 500 ₽/час</div>
-          <div class="equip-tag">Ноутбук · 2 000 ₽/день</div>
-        </div>
-        <p style="margin-top:10px;font-size:12px;color:var(--gray)">Проектор бесплатно при аренде от 8 часов</p>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:frontdesk@5ugol.ru">Запросить бронирование</a>
-        <a class="btn btn-outline" href="tel:+78124078181">Позвонить</a>
+    </div>
+
+    <div class="panel" id="t-mid">
+      <div class="menu-cols">
+        <div class="mcol"><h4>Выпечка</h4><ul><li>Хачапури Кубдари сванети (говядина + свинина)</li><li>Хачапури по-имеретински</li></ul></div>
+        <div class="mcol"><h4>Холодные закуски</h4><ul><li>Круассан с сыром сулугуни и томатами</li><li>Круассан с ветчиной и сыром</li><li>Пхали (фасоль / свёкла / баклажан / шпинат)</li></ul></div>
+        <div class="mcol"><h4>Десерты</h4><ul><li>Пахлава слоёная с грецким орехом</li><li>Чурчхелла (виноградная / гранатовая)</li><li>Слойка с джемом</li></ul></div>
+        <div class="mcol"><h4>Напитки</h4><ul><li>Питьевая вода без газа</li><li>Чай пакетированный</li><li>Кофе заварной</li></ul></div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="coffee">
-  <div class="reveal">
-    <span class="label">Кейтеринг</span>
-    <h2 class="section-title">Меню кофе-брейка</h2>
-  </div>
-  <div class="menu-tabs reveal">
-    <button class="tab active" onclick="switchTab(this,'t-light')">Лёгкий</button>
-    <button class="tab" onclick="switchTab(this,'t-mid')">Средний</button>
-    <button class="tab" onclick="switchTab(this,'t-full')">Полный</button>
-  </div>
+    <div class="panel" id="t-full">
+      <div class="menu-cols">
+        <div class="mcol"><h4>Выпечка</h4><ul><li>Хачапури по-имеретински</li><li>Хачапури Кубдари сванети (говядина + свинина)</li><li>Хачапури по-мегрельски</li></ul></div>
+        <div class="mcol"><h4>Холодные закуски</h4><ul><li>Круассан с сыром сулугуни и томатами</li><li>Круассан с ветчиной и сыром</li><li>Пхали (фасоль / свёкла / баклажан / шпинат)</li></ul></div>
+        <div class="mcol"><h4>Десерты</h4><ul><li>Пахлава слоёная с грецким орехом</li><li>Чурчхелла (виноградная / гранатовая)</li><li>Пирожное морковное</li><li>Слойка с джемом</li></ul></div>
+        <div class="mcol"><h4>Напитки</h4><ul><li>Минеральная вода (с газом / без газа)</li><li>Чай пакетированный</li><li>Кофе заварной</li></ul></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="panel active reveal" id="t-light">
-    <div class="menu-cols">
-      <div class="mcol"><h4>Холодные закуски</h4><ul><li>Круассан с сыром сулугуни и томатами</li><li>Круассан с ветчиной и сыром</li></ul></div>
-      <div class="mcol"><h4>Десерты</h4><ul><li>Пахлава слоёная с грецким орехом</li><li>Чурчхелла (виноградная / гранатовая)</li><li>Слойка с джемом</li></ul></div>
-      <div class="mcol"><h4>Напитки</h4><ul><li>Питьевая вода без газа</li><li>Чай пакетированный</li><li>Кофе заварной</li></ul></div>
+  <div class="contact-band reveal">
+    <div>
+      <h2>Организуйте мероприятие в центре Петербурга</h2>
+      <p>Свяжитесь с нами для уточнения деталей и бронирования зала</p>
+    </div>
+    <div class="contact-items">
+      <div class="ci-item"><div class="ci-label">Адрес</div><div class="ci-val">Загородный проспект, 13</div></div>
+      <div class="ci-item"><div class="ci-label">Телефон</div><div class="ci-val"><a href="tel:+78124078181">+7 (812) 407-81-81</a></div></div>
+      <div class="ci-item"><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:frontdesk@5ugol.ru">frontdesk@5ugol.ru</a></div></div>
     </div>
   </div>
 
-  <div class="panel" id="t-mid">
-    <div class="menu-cols">
-      <div class="mcol"><h4>Выпечка</h4><ul><li>Хачапури Кубдари сванети (говядина + свинина)</li><li>Хачапури по-имеретински</li></ul></div>
-      <div class="mcol"><h4>Холодные закуски</h4><ul><li>Круассан с сыром сулугуни и томатами</li><li>Круассан с ветчиной и сыром</li><li>Пхали (фасоль / свёкла / баклажан / шпинат)</li></ul></div>
-      <div class="mcol"><h4>Десерты</h4><ul><li>Пахлава слоёная с грецким орехом</li><li>Чурчхелла (виноградная / гранатовая)</li><li>Слойка с джемом</li></ul></div>
-      <div class="mcol"><h4>Напитки</h4><ul><li>Питьевая вода без газа</li><li>Чай пакетированный</li><li>Кофе заварной</li></ul></div>
-    </div>
-  </div>
+  <hotel-footer></hotel-footer>
 
-  <div class="panel" id="t-full">
-    <div class="menu-cols">
-      <div class="mcol"><h4>Выпечка</h4><ul><li>Хачапури по-имеретински</li><li>Хачапури Кубдари сванети (говядина + свинина)</li><li>Хачапури по-мегрельски</li></ul></div>
-      <div class="mcol"><h4>Холодные закуски</h4><ul><li>Круассан с сыром сулугуни и томатами</li><li>Круассан с ветчиной и сыром</li><li>Пхали (фасоль / свёкла / баклажан / шпинат)</li></ul></div>
-      <div class="mcol"><h4>Десерты</h4><ul><li>Пахлава слоёная с грецким орехом</li><li>Чурчхелла (виноградная / гранатовая)</li><li>Пирожное морковное</li><li>Слойка с джемом</li></ul></div>
-      <div class="mcol"><h4>Напитки</h4><ul><li>Минеральная вода (с газом / без газа)</li><li>Чай пакетированный</li><li>Кофе заварной</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<div class="contact-band reveal">
-  <div>
-    <h2>Организуйте мероприятие в центре Петербурга</h2>
-    <p>Свяжитесь с нами для уточнения деталей и бронирования зала</p>
-  </div>
-  <div class="contact-items">
-    <div class="ci-item"><div class="ci-label">Адрес</div><div class="ci-val">Загородный проспект, 13</div></div>
-    <div class="ci-item"><div class="ci-label">Телефон</div><div class="ci-val"><a href="tel:+78124078181">+7 (812) 407-81-81</a></div></div>
-    <div class="ci-item"><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:frontdesk@5ugol.ru">frontdesk@5ugol.ru</a></div></div>
-  </div>
-</div>
-
-<footer>
-  <p>© 2025 Отель 5 Угол, Санкт-Петербург</p>
-  <div class="fl">
-    <a href="https://5ugol.ru/docsDirectory/privacy_policy.docx" target="_blank">Политика конфиденциальности</a>
-    <a href="https://5ugol.ru/docsDirectory/personal_data_agreement.docx" target="_blank">Согласие на обработку данных</a>
-    <a href="https://5ugol.ru/docsDirectory/dogovorOferty.docx" target="_blank">Договор оферты</a>
-  </div>
-</footer>
-
-<script src="scr/conference.js" defer></script>
 </body>
 </html>

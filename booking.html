@@ -1,101 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Бронирование — Отель 5 Угол</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<!-- Общие стили + стили бронирования -->
-<link rel="stylesheet" href="styles/common.css">
-<link rel="stylesheet" href="styles/booking.css">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бронирование — Отель 5 Угол</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/booking.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Web Components -->
+  <script src="scr/components/hotel-navbar.js" defer></script>
+  <script src="scr/components/hotel-footer.js" defer></script>
+  <script src="scr/components/tl-widget.js" defer></script>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="index.html">
-    <div class="logo-mark">
-      <svg viewBox="0 0 14 14" fill="none"><polygon points="7,1 13,5 11,12 3,12 1,5" fill="none" stroke="white" stroke-width="1.5"/></svg>
-    </div>
-    5 Угол
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Главная</a></li>
-    <li><a href="conference.html">Конференц-зал</a></li>
-    <li><a href="booking.html" class="active nav-cta">Забронировать</a></li>
-  </ul>
-  <div class="burger" onclick="toggleMob()"><span></span><span></span><span></span></div>
-</nav>
+  <hotel-navbar active="booking"></hotel-navbar>
 
-<div class="mob-nav" id="mobNav">
-  <a href="index.html" onclick="closeMob()">Главная</a>
-  <a href="conference.html" onclick="closeMob()">Конференц-зал</a>
-  <a href="booking.html" class="mob-cta" onclick="closeMob()">Забронировать</a>
-</div>
+  <div class="page-wrap">
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-label">Онлайн-бронирование</div>
+        <h2>Отель<br>5 Угол</h2>
+      </div>
 
-<div class="page-wrap">
-  <aside class="sidebar">
-    <div>
-      <div class="sidebar-label">Онлайн-бронирование</div>
-      <h2>Отель<br>5 Угол</h2>
-    </div>
-    <div class="sb-block">
-      <div class="sb-block-label">Адрес</div>
-      <div class="sb-block-val">Загородный проспект, 13<br>Санкт-Петербург</div>
-    </div>
-    <div class="sb-sep"></div>
-    <div class="sb-block">
-      <div class="sb-block-label">Телефон</div>
-      <div class="sb-block-val">
-        <a href="tel:+78124078181">+7 (812) 407-81-81</a><br>
-        <a href="tel:+79119871820">+7 (911) 987-18-20</a>
+      <div class="sb-block">
+        <div class="sb-block-label">Адрес</div>
+        <div class="sb-block-val">Загородный проспект, 13<br>Санкт-Петербург</div>
       </div>
-    </div>
-    <div class="sb-block">
-      <div class="sb-block-label">Email</div>
-      <div class="sb-block-val"><a href="mailto:frontdesk@5ugol.ru">frontdesk@5ugol.ru</a></div>
-    </div>
-    <div class="sb-sep"></div>
-    <div class="sb-block">
-      <div class="sb-block-label">Заезд / Выезд</div>
-      <div class="sb-block-val">с 14:00 / до 12:00</div>
-    </div>
-    <div class="sb-block">
-      <div class="sb-block-label">Питомцы</div>
-      <div class="sb-block-val">Принимаем собак до 10 кг</div>
-    </div>
-    <div class="sb-sep"></div>
-    <div class="sb-block">
-      <div class="sb-block-label">Мессенджеры</div>
-      <div class="sb-block-val">
-        <a href="https://t.me/FifthCorneerBot" target="_blank" rel="noopener">Telegram</a> &nbsp;·&nbsp;
-        <a href="https://vk.com/5ugolspb" target="_blank" rel="noopener">ВКонтакте</a> &nbsp;·&nbsp;
-        <a href="https://max.ru/u/f9LHodD0cOJRsnHOx8WOLRxPOSasKHpdg3dygl_lKTsrMQcA0DxAyyqGXzA" target="_blank" rel="noopener">MAX</a>
-      </div>
-    </div>
-    <div class="guarantee-box">
-      <p><strong>Безопасная оплата.</strong> Бронирование обрабатывается сервисом TravelLine. Ваши данные защищены.</p>
-    </div>
-  </aside>
+      <div class="sb-sep"></div>
 
-  <div class="main-col">
-    <div class="module-content">
-      <div id="tl-booking-form">
-        <div class="tl-loader"><div class="spinner"></div><p>Загрузка модуля бронирования...</p></div>
+      <div class="sb-block">
+        <div class="sb-block-label">Телефон</div>
+        <div class="sb-block-val">
+          <a href="tel:+78124078181">+7 (812) 407-81-81</a><br>
+          <a href="tel:+79119871820">+7 (911) 987-18-20</a>
+        </div>
       </div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Email</div>
+        <div class="sb-block-val"><a href="mailto:frontdesk@5ugol.ru">frontdesk@5ugol.ru</a></div>
+      </div>
+      <div class="sb-sep"></div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Заезд / Выезд</div>
+        <div class="sb-block-val">с 14:00 / до 12:00</div>
+      </div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Питомцы</div>
+        <div class="sb-block-val">Принимаем собак до 10 кг</div>
+      </div>
+      <div class="sb-sep"></div>
+
+      <div class="sb-block">
+        <div class="sb-block-label">Мессенджеры</div>
+        <div class="sb-block-val">
+          <a href="https://t.me/FifthCorneerBot" target="_blank" rel="noopener">Telegram</a> &nbsp;·&nbsp;
+          <a href="https://vk.com/5ugolspb" target="_blank" rel="noopener">ВКонтакте</a> &nbsp;·&nbsp;
+          <a href="https://max.ru/u/f9LHodD0cOJRsnHOx8WOLRxPOSasKHpdg3dygl_lKTsrMQcA0DxAyyqGXzA" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+
+      <div class="guarantee-box">
+        <p><strong>Безопасная оплата.</strong> Бронирование обрабатывается сервисом TravelLine. Ваши данные защищены.</p>
+      </div>
+    </aside>
+
+    <div class="main-col">
+      <div class="module-content">
+        <tl-widget embed="booking-form"></tl-widget>
+      </div>
+
+      <hotel-footer></hotel-footer>
     </div>
-    <footer>
-      <p>© 2025 Отель 5 Угол, Санкт-Петербург</p>
-      <div class="fl">
-        <a href="https://5ugol.ru/docsDirectory/privacy_policy.docx" target="_blank">Политика конфиденциальности</a>
-        <a href="https://5ugol.ru/docsDirectory/personal_data_agreement.docx" target="_blank">Согласие на обработку данных</a>
-        <a href="https://5ugol.ru/docsDirectory/dogovorOferty.docx" target="_blank">Договор оферты</a>
-      </div>
-    </footer>
   </div>
-</div>
 
-<script src="scr/booking.js" defer></script>
 </body>
 </html>
