@@ -600,20 +600,19 @@ room-card:hover {
 }
 
 .promotions-toggle {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;  
 }
 
 .promotions-toggle .btn {
-  padding: 16px 48px;
-  font-size: 17px;
-  font-weight: 600;
-  border-radius: 50px;
-  background: var(--navy);
-  color: white;
-  border: none;
-  transition: all 0.3s ease;
+    padding: 16px 48px;
+    font-size: 11px;
+    font-weight: 500;
+    background: var(--navy);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
 }
 
 .promotions-toggle .btn:hover {
