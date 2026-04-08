@@ -599,8 +599,8 @@ room-card:hover {
   margin: 0 auto;
 }
 
-.promotions-toggle .btn {
-    margin-top: 50px;
+.promotions-toggle {
+    margin-top: 20px;
     display: flex;
     justify-content: center;  
 }
