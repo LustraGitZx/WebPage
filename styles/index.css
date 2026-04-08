@@ -600,6 +600,12 @@ room-card:hover {
 }
 
 .promotions-toggle .btn {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;  
+}
+
+.promotions-toggle .btn {
   padding: 16px 48px;
   font-size: 17px;
   font-weight: 600;
