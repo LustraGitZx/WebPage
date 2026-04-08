@@ -590,23 +590,29 @@ room-card:hover {
   display: none;
 }
 
-.promotions-toggle {
-  text-align: center;
-  margin-top: 40px;
-  padding: 0 40px;
+.promotions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  padding: 0 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .promotions-toggle .btn {
-  padding: 14px 42px;
+  padding: 16px 48px;
   font-size: 17px;
   font-weight: 600;
   border-radius: 50px;
+  background: var(--navy);
+  color: white;
+  border: none;
   transition: all 0.3s ease;
 }
 
 .promotions-toggle .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(30, 64, 175, 0.25);
 }
 
 /* ==================== СЕКЦИЯ АКЦИИ ==================== */
