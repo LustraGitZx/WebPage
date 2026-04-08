@@ -26,25 +26,27 @@ const PROMOS = [
     description: "Специальный тариф для гостей в деловой поездке с условиями, удобными для командировок и предоставлением отчетных документов."
   }
 ];
-
 class ExpandablePromotions extends HTMLElement {
   constructor() {
     super();
-    this.visibleCount = 3; // первые 3 акции «что влезают» по умолчанию
+    this.visibleCount = 3;        // сколько акций показывать в одну строку по умолчанию
     this.expanded = false;
   }
 
   connectedCallback() {
     this.render();
-
-    // Клик по кнопке
-    this.querySelector('#toggleBtn').addEventListener('click', () => {
-      this.toggle();
+    // Слушатель вешается один раз
+    this.addEventListener('click', (e) => {
+      if (e.target.id === 'toggleBtn') this.toggle();
     });
   }
 
   render() {
-    const gridHTML = PROMOS.map((promo, index) => `
+    const visiblePromos = this.expanded 
+      ? PROMOS 
+      : PROMOS.slice(0, this.visibleCount);
+
+    const gridHTML = visiblePromos.map((promo) => `
       <promo-card 
         image="${promo.image}"
         title="${promo.title}"
@@ -52,14 +54,16 @@ class ExpandablePromotions extends HTMLElement {
       </promo-card>
     `).join('');
 
+    const btnText = this.expanded ? 'Скрыть акции' : 'Показать все акции';
+
     this.innerHTML = `
-      <div class="promotions-grid ${this.expanded ? 'expanded' : 'collapsed'}" id="promoGrid">
+      <div class="promotions-grid" id="promoGrid">
         ${gridHTML}
       </div>
 
       <div class="promotions-toggle">
-        <button id="toggleBtn" class="btn btn-secondary">
-          ${this.expanded ? 'Скрыть акции' : 'Показать все акции'}
+        <button id="toggleBtn" class="btn btn-primary">
+          ${btnText}
         </button>
       </div>
     `;
@@ -67,7 +71,7 @@ class ExpandablePromotions extends HTMLElement {
 
   toggle() {
     this.expanded = !this.expanded;
-    this.render(); // перерисовываем с новым состоянием
+    this.render();           // теперь перерисовка безопасна
   }
 }
 
